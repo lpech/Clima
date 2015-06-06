@@ -31,8 +31,15 @@ public class MainActivity extends ActionBarActivity {
 
     //Metodo cargar Items
     private void loadItems(){
-        Items=new ArrayList<SecundaryMain>(); //Creamos un objeto
-
+        Items=new ArrayList<SecundaryMain>(); //Creamos un objeto ArrayList de tipo SecundaryMain
+        //Se agrega elementos al ArrayList
+        Items.add(new SecundaryMain("Cancún", "25°C-28°C", this.getResources().getIdentifier("","drawable",this.getPackageName())));
+        Items.add(new SecundaryMain("Cozumel", "33°C-35°C", this.getResources().getIdentifier("","drawable",this.getPackageName())));
+        Items.add(new SecundaryMain("Chetumal", "16°C-19°C", this.getResources().getIdentifier("","drawable",this.getPackageName())));
+        //Se crea un nuevo Adapter y se le pasa el ArrayList
+        Adapter=new Adapter(this, Items);
+        //Se desplega los elementos en el ListView
+        listItems.setAdapter(Adapter);
     }
 
     @Override
